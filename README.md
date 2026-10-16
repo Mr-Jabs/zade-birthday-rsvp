@@ -167,3 +167,9 @@ Event: Sunday, October 25, 2026, 3:00–7:00 PM, `Asia/Manila`; PlayTown Kids Ca
 Password login, revocable 12-hour sessions, automatically refreshed KPIs, separate confirmed/tentative headcounts, guest search/filter/pagination/details, message and statistics views, and full or filtered CSV downloads are implemented. The guest-list and export APIs require authentication; no public guest-list read route exists.
 
 The production build includes both HTML entry points. This project has been verified locally; deployment remains a separate step.
+
+## GitHub Pages deployment
+
+`.github/workflows/deploy.yml` installs the locked pnpm dependencies, builds the Vite frontend, uploads only `frontend/dist`, and deploys through GitHub Pages on pushes to `main`. It can also be run manually from the Actions tab.
+
+In the repository’s **Settings → Pages → Build and deployment**, select **GitHub Actions** as the source before the first run. The workflow reads the Pages base path automatically, so repository URLs and root/custom-domain URLs use the correct asset paths. Both the invitation and `admin.html` are deployed. API requests continue to use the Render backend; the workflow does not deploy FastAPI or PostgreSQL.

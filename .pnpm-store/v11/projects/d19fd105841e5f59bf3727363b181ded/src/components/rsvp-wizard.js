@@ -19,7 +19,7 @@ export function initRsvpWizard({ getEvent, onCalendar }) {
         <span class="eyebrow">ZADE’S BIRTHDAY PIT CREW</span>
         <span class="rsvp-art-heading">BIG WHEELS.<br /><em>BIGGER SMILES.</em></span>
         <span class="rsvp-race-number">02</span>
-        <img src="/assets/trucks/monster-truck.svg" alt="" width="840" height="580" />
+        <img src="${import.meta.env.BASE_URL}assets/trucks/monster-truck.svg" alt="" width="840" height="580" />
         <span class="rsvp-art-date">OCT 25, 2026 <span>·</span> SAN JUAN CITY</span>
         <div class="checker-divider"></div>
       </aside>
@@ -69,7 +69,7 @@ export function initRsvpWizard({ getEvent, onCalendar }) {
         </div>
         <section id="rsvp-confirmation" hidden aria-labelledby="confirmation-title">
           <span class="saved-badge"><span aria-hidden="true">✓</span> RSVP SAVED</span>
-          <div class="confirmation-truck" aria-hidden="true"><img src="/assets/trucks/monster-truck.svg" alt="" width="840" height="580" /></div>
+          <div class="confirmation-truck" aria-hidden="true"><img src="${import.meta.env.BASE_URL}assets/trucks/monster-truck.svg" alt="" width="840" height="580" /></div>
           <h2 id="confirmation-title" tabindex="-1"></h2><p id="confirmation-description"></p>
           <div class="confirmation-ticket"><span class="eyebrow">YOUR PARTY PASS</span><strong id="confirmation-name"></strong><span id="confirmation-status"></span><span id="confirmation-counts"></span><div class="ticket-date">SUN, OCT 25 <span>3:00–7:00 PM PHT</span></div></div>
           <p class="confirmation-note" id="confirmation-note"></p>
