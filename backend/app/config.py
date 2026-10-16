@@ -18,6 +18,8 @@ class Settings(BaseSettings):
     def allowed_frontend_origins(self) -> list[str]:
         return list(dict.fromkeys([
             "https://mr-jabs.github.io",
+            "http://127.0.0.1:5173",
+            "http://localhost:5173",
             self.frontend_origin.rstrip("/"),
         ]))
 

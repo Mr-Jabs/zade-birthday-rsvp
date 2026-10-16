@@ -117,7 +117,7 @@ def test_secure_cookie_configuration(admin_context, monkeypatch):
 def test_pages_origin_can_login_and_logout(admin_context):
     client, _, organizer, password, _, _ = admin_context
     origin = "https://mr-jabs.github.io"
-    response = client.post("/api/v1/auth/login", json={"username": organizer.username, "password": password}, headers={"Origin": origin})
+    response = client.post("/api/v1/auth/login", json={"username": organizer.username.upper(), "password": password}, headers={"Origin": origin})
     assert response.status_code == 200
     assert response.headers["access-control-allow-origin"] == origin
     csrf = response.json()["csrf_token"]

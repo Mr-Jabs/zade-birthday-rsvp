@@ -4,6 +4,8 @@ Open `http://127.0.0.1:5173/admin.html`. All data is protected on the backend; t
 
 ## Account setup
 
+For Render, use the migration-and-account startup script described in [render-setup.md](render-setup.md). The generated local credentials file does not create an account in the production database.
+
 The local organizer account has already been created. Its username and generated password are in `.local/organizer-credentials.txt`, outside the public frontend and ignored by Git. No password is embedded in HTML, JavaScript, or committed configuration.
 
 On a new installation, after migrating the database:

@@ -61,7 +61,10 @@ async def validation_error(request: Request, exc: RequestValidationError):
 @app.exception_handler(SQLAlchemyError)
 async def database_error(request: Request, exc: SQLAlchemyError):
     # Log only the exception class; database exceptions may contain connection details.
-    logging.getLogger(__name__).error("Database operation failed: %s", type(exc).__name__)
+    sqlstate = getattr(getattr(exc, "orig", None), "sqlstate", None)
+    logging.getLogger(__name__).error("Database operation failed: %s (SQLSTATE=%s)", type(exc).__name__, sqlstate)
+    if sqlstate in {"42P01", "42703"}:
+        return JSONResponse(status_code=503, content={"error": {"code": "DATABASE_NOT_INITIALIZED", "message": "The party desk hasn’t finished setup. Please contact the organizer to complete setup."}})
     return JSONResponse(status_code=503, content={"error": {"code": "DATABASE_UNAVAILABLE", "message": "We couldn’t reach the party desk. Please try again shortly."}})
 
 
