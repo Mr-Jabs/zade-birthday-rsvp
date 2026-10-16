@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="theme-color" content="#081d38" />
+    <title>Pit Crew HQ · Zade’s Birthday</title>
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  </head>
+  <body class="admin-page">
+    <a class="skip-link" href="#admin-main">Skip to dashboard</a>
+    <div id="session-check" class="session-check" role="status">Checking your organizer session…</div>
+    <section id="login-screen" class="login-screen" hidden aria-labelledby="login-title">
+      <div class="login-brand-panel"><a class="brand" href="/"><span class="brand-flag" aria-hidden="true"></span> ZADE<span class="brand-accent">/</span><span class="brand-small">TURNS TWO</span></a><p class="eyebrow">BEHIND EVERY GREAT BIRTHDAY</p><h1>THERE’S A<br /><em>GREAT PIT CREW.</em></h1><p>Your home base for the big little celebration.</p><img src="/assets/trucks/monster-truck.svg" alt="Orange and blue birthday monster truck" width="840" height="580" /><div class="checker-divider" aria-hidden="true"></div></div>
+      <div class="login-form-panel"><div class="login-form-wrap"><span class="private-label"><span data-icon="lock" aria-hidden="true"></span> ORGANIZERS ONLY</span><p class="eyebrow">WELCOME TO PIT CREW HQ</p><h2 id="login-title">LET’S GET<br />PARTY READY.</h2><p class="login-intro">Sign in to keep track of every guest, little racer, and birthday wish.</p><form id="login-form"><label for="login-username">Username</label><input id="login-username" name="username" autocomplete="username" required maxlength="80" /><label for="login-password">Password</label><input id="login-password" name="password" type="password" autocomplete="current-password" required maxlength="256" /><p id="login-error" role="alert" hidden></p><button type="submit" class="button button-orange" id="login-submit">Sign in to dashboard <span aria-hidden="true">↗</span></button></form><a class="login-home" href="/">← Back to the birthday invitation</a></div></div>
+    </section>
+
+    <div id="dashboard" class="dashboard" hidden>
+      <aside class="admin-sidebar" aria-label="Organizer navigation">
+        <a class="brand sidebar-brand" href="/" aria-label="Zade's birthday invitation"><span class="brand-flag" aria-hidden="true"></span> ZADE<span class="brand-accent">/</span><span class="brand-small">TURNS TWO</span></a>
+        <div class="sidebar-caption">THE ORGANIZER’S GARAGE</div>
+        <nav class="admin-nav" aria-label="Dashboard sections"><a href="#overview" data-view="overview"><span data-icon="overview" aria-hidden="true"></span>Overview</a><a href="#guests" data-view="guests"><span data-icon="users" aria-hidden="true"></span>Guest list<span class="nav-count" id="nav-count">0</span></a><a href="#messages" data-view="messages"><span data-icon="message" aria-hidden="true"></span>Messages</a><a href="#statistics" data-view="statistics"><span data-icon="stats" aria-hidden="true"></span>Statistics</a><button type="button" id="sidebar-export"><span data-icon="download" aria-hidden="true"></span>Export CSV</button></nav>
+        <div class="sidebar-event"><span class="eyebrow">THE BIG DAY</span><strong>OCTOBER 25</strong><span>Sunday · 3:00–7:00 PM PHT</span><img src="/assets/trucks/monster-truck.svg" alt="" width="840" height="580" /><a href="/">View the invitation <span aria-hidden="true">↗</span></a></div>
+        <div class="sidebar-private"><span data-icon="lock" aria-hidden="true"></span> Private organizer workspace</div>
+      </aside>
+
+      <div class="admin-workspace">
+        <header class="admin-topbar"><div><span class="topbar-event">Zade’s birthday</span><span class="topbar-slash">/</span><span id="breadcrumb">Overview</span></div><div class="topbar-account"><span class="account-avatar" aria-hidden="true">O</span><span id="account-name">Organizer</span><button type="button" id="logout-button">Sign out <span aria-hidden="true">↗</span></button></div></header>
+        <main id="admin-main" class="admin-main" tabindex="-1">
+          <div class="admin-page-heading"><div><p class="eyebrow">PIT CREW HQ <span aria-hidden="true">/</span> ZADE TURNS TWO</p><h1 id="page-title">THE PARTY, AT A GLANCE.</h1><p id="page-description">Big plans. Little racers. All your RSVPs in one place.</p></div><div class="admin-heading-actions"><button type="button" class="admin-refresh" id="refresh-button"><span data-icon="refresh" aria-hidden="true"></span>Refresh</button><button type="button" class="button button-orange" id="export-button"><span data-icon="download" aria-hidden="true"></span>Export CSV</button></div></div>
+          <div class="live-status"><span class="small-dot" aria-hidden="true"></span><span id="update-status" role="status">Connecting to your guest list…</span><span class="live-status-note">Automatic updates every 15 seconds</span></div>
+          <div class="admin-error" id="admin-error" role="alert" hidden></div>
+          <div class="admin-notice" id="delete-notice" role="status" hidden></div>
+
+          <section id="overview-panel" aria-label="Response overview">
+            <div class="kpi-grid">
+              <article class="kpi-card attending"><div><span class="kpi-label">Attending</span><span class="kpi-symbol" data-icon="check" aria-hidden="true"></span></div><strong data-metric="attending">—</strong><p>Crews ready to celebrate</p></article>
+              <article class="kpi-card declined"><div><span class="kpi-label">Not attending</span><span class="kpi-symbol" data-icon="cross" aria-hidden="true"></span></div><strong data-metric="not_attending">—</strong><p>Sending birthday love</p></article>
+              <article class="kpi-card tentative"><div><span class="kpi-label">Maybe</span><span class="kpi-symbol" data-icon="clock" aria-hidden="true"></span></div><strong data-metric="maybe">—</strong><p>Still checking their plans</p></article>
+              <article class="kpi-card responses"><div><span class="kpi-label">Total responses</span><span class="kpi-symbol" data-icon="users" aria-hidden="true"></span></div><strong data-metric="total_responses">—</strong><p>Every RSVP, accounted for</p></article>
+            </div>
+            <div class="headcount-strip"><div class="headcount-title"><span data-icon="users" aria-hidden="true"></span><div><strong>The crew headcount</strong><span>Confirmed guests · includes adults and kids</span></div></div><div><strong data-metric="confirmed_guests">—</strong><span>Total guests</span></div><div><strong data-metric="confirmed_adults">—</strong><span>Adults</span></div><div><strong data-metric="confirmed_kids">—</strong><span>Little racers</span></div><p><strong data-metric="tentative_guests">—</strong> additional tentative guests</p></div>
+          </section>
+
+          <section id="guest-panel" class="guest-panel" aria-labelledby="table-title">
+            <div class="panel-heading"><div><p class="eyebrow" id="table-eyebrow">FRESH OFF THE STARTING LINE</p><h2 id="table-title">Latest responses</h2></div><a href="#guests" class="view-all" id="view-all">View all guests <span aria-hidden="true">↗</span></a><span id="results-count" class="results-count"></span></div>
+            <div id="guest-controls" class="guest-controls" hidden><div class="search-wrap"><span data-icon="search" aria-hidden="true"></span><label class="sr-only" for="guest-search">Search guest name or contact</label><input type="search" id="guest-search" placeholder="Search guest name or contact…" maxlength="100" /></div><label class="sort-wrap">Sort by <select id="guest-sort"><option value="newest">Newest first</option><option value="oldest">Oldest first</option><option value="name">Name A–Z</option></select></label><div class="status-filters" role="group" aria-label="Filter attendance"><button type="button" data-status="all" aria-pressed="true">All guests</button><button type="button" data-status="attending" aria-pressed="false">Attending</button><button type="button" data-status="not_attending" aria-pressed="false">Not attending</button><button type="button" data-status="maybe" aria-pressed="false">Maybe</button><button type="button" id="export-filtered">Export this view ↗</button></div></div>
+            <div id="table-wrap" class="table-wrap"><table class="guest-table"><caption class="sr-only">Guest RSVP responses</caption><thead><tr><th scope="col">Guest</th><th scope="col">Contact number</th><th scope="col">Response</th><th scope="col">Adults</th><th scope="col">Kids</th><th scope="col">Received</th><th scope="col">Actions</th></tr></thead><tbody id="guest-rows"></tbody></table></div>
+            <div id="message-list" class="message-list" hidden></div>
+            <div id="empty-state" class="admin-empty" hidden><span data-icon="users" aria-hidden="true"></span><h3 id="empty-title">Your starting grid is waiting.</h3><p id="empty-description">Guest responses will appear here as soon as they RSVP.</p></div>
+            <div class="table-loading" id="table-loading" role="status" hidden>Loading guest responses…</div>
+            <div class="table-footer"><span id="page-summary">Waiting for responses…</span><div id="pagination" class="pagination" hidden><button type="button" id="previous-page" aria-label="Previous page">←</button><span id="page-number">Page 1</span><button type="button" id="next-page" aria-label="Next page">→</button></div></div>
+          </section>
+
+          <section id="statistics-panel" class="statistics-panel" hidden aria-labelledby="statistics-title"><div class="panel-heading"><div><p class="eyebrow">THE NUMBERS BEHIND THE NOISE</p><h2 id="statistics-title">Attendance breakdown</h2></div></div><div id="attendance-bars" class="attendance-bars"></div><div class="statistics-footnote"><strong>Planning for the little racers?</strong><p>Confirmed: <span data-metric="confirmed_adults">—</span> adults and <span data-metric="confirmed_kids">—</span> kids. Tentative: <span data-metric="tentative_adults">—</span> adults and <span data-metric="tentative_kids">—</span> kids. Declined responses do not contribute to headcounts.</p></div></section>
+          <footer class="admin-footer"><span>MADE FOR A WHEELIE GOOD TIME.</span><span>Sunday, October 25, 2026 <span aria-hidden="true">✦</span> San Juan City</span></footer>
+        </main>
+      </div>
+    </div>
+
+    <dialog id="guest-dialog" class="guest-dialog" aria-labelledby="guest-dialog-title"><div class="guest-dialog-content"><button type="button" class="dialog-close" id="guest-dialog-close" aria-label="Close guest details">×</button><p class="eyebrow">FROM ZADE’S STARTING GRID</p><h2 id="guest-dialog-title">Guest details</h2><h3 id="detail-name"></h3><span id="detail-status"></span><dl id="detail-fields"></dl><div class="guest-message"><span class="eyebrow">BIRTHDAY MESSAGE</span><p id="detail-message"></p></div></div></dialog>
+    <dialog id="delete-dialog" class="delete-dialog" role="alertdialog" aria-labelledby="delete-title" aria-describedby="delete-description"><form id="delete-form"><p class="eyebrow">ORGANIZER ACTION</p><h2 id="delete-title">DELETE THIS RESPONSE?</h2><p class="delete-guest-name" id="delete-guest-name"></p><p id="delete-description">This permanently removes the guest’s RSVP and birthday message, and updates the party headcount. This can’t be undone.</p><p class="admin-error" id="delete-error" role="alert" hidden></p><div class="delete-dialog-actions"><button type="button" id="delete-cancel" autofocus>Keep response</button><button type="submit" class="delete-confirm" id="delete-confirm">Delete response</button></div></form></dialog>
+    <noscript><p class="admin-error">Enable JavaScript to sign in and view the organizer dashboard.</p></noscript>
+    <script type="module" src="/src/admin.js"></script>
+  </body>
+</html>

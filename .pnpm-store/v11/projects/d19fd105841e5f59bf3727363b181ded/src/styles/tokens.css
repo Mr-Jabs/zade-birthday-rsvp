@@ -1,0 +1,23 @@
+@theme {
+  --font-body: 'DM Sans', sans-serif;
+  --font-display: 'Barlow Condensed', Impact, sans-serif;
+  --color-midnight: #081d38;
+  --color-navy: #0d2d53;
+  --color-track: #164b80;
+  --color-action: #ff7a24;
+  --color-action-light: #ffa348;
+  --color-highlight: #ffd15b;
+  --color-paper: #f7f5ef;
+  --color-ink: #102844;
+  --color-muted: #536174;
+  --radius-card: 1rem;
+  --radius-control: 0.5rem;
+  --breakpoint-md: 48rem;
+  --breakpoint-lg: 64rem;
+  --animate-arrive: arrive 650ms ease-out both;
+}
+
+:root {
+  --page-width: 1240px;
+  --page-gutter: clamp(1.25rem, 4.8vw, 5rem);
+}

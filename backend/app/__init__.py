@@ -1,0 +1,1 @@
+"""Zade birthday application."""

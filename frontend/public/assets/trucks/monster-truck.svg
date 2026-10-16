@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 580" fill="none">
+  <defs>
+    <linearGradient id="paint" x1="400" y1="170" x2="450" y2="340" gradientUnits="userSpaceOnUse"><stop stop-color="#ffb04a"/><stop offset=".4" stop-color="#ff7622"/><stop offset="1" stop-color="#bb3815"/></linearGradient>
+    <linearGradient id="blue" x1="200" y1="220" x2="240" y2="370" gradientUnits="userSpaceOnUse"><stop stop-color="#289ed8"/><stop offset=".5" stop-color="#096395"/><stop offset="1" stop-color="#07334f"/></linearGradient>
+    <linearGradient id="glass" x1="350" y1="160" x2="360" y2="255" gradientUnits="userSpaceOnUse"><stop stop-color="#8fd6e6"/><stop offset=".5" stop-color="#2a627d"/><stop offset="1" stop-color="#102f45"/></linearGradient>
+    <radialGradient id="rubber"><stop offset=".4" stop-color="#18344b"/><stop offset=".66" stop-color="#0e1f30"/><stop offset=".9" stop-color="#06111e"/><stop offset="1" stop-color="#253e51"/></radialGradient>
+    <radialGradient id="hub"><stop stop-color="#578199"/><stop offset=".4" stop-color="#243d50"/><stop offset=".55" stop-color="#9ab9c6"/><stop offset=".64" stop-color="#43667d"/><stop offset="1" stop-color="#102e43"/></radialGradient>
+    <g id="tread"><path d="m-20-118 20 13 20-13v26L0-79l-20-13Z" fill="#203447" stroke="#060f1a" stroke-width="3"/><path d="m-17-118 17 11 17-11" stroke="#40576a" stroke-width="2"/></g>
+    <g id="wheel">
+      <ellipse cx="14" cy="8" rx="115" ry="121" fill="#020c17"/>
+      <circle r="113" fill="url(#rubber)" stroke="#040d18" stroke-width="6"/>
+      <use href="#tread"/><use href="#tread" transform="rotate(30)"/><use href="#tread" transform="rotate(60)"/><use href="#tread" transform="rotate(90)"/><use href="#tread" transform="rotate(120)"/><use href="#tread" transform="rotate(150)"/><use href="#tread" transform="rotate(180)"/><use href="#tread" transform="rotate(210)"/><use href="#tread" transform="rotate(240)"/><use href="#tread" transform="rotate(270)"/><use href="#tread" transform="rotate(300)"/><use href="#tread" transform="rotate(330)"/>
+      <circle r="73" stroke="#426178" stroke-width="2"/>
+      <circle r="61" fill="url(#hub)" stroke="#091623" stroke-width="8"/>
+      <path d="m0-49 10 30 29-20-20 29 30 10-30 10 20 29-29-20L0 49l-10-30-29 20 20-29-30-10 30-10-20-29 29 20Z" fill="#7999ac" stroke="#213f55" stroke-width="3"/>
+      <circle r="17" fill="#183c56" stroke="#a2c2d2" stroke-width="4"/>
+      <circle r="6" fill="#ff8c35"/>
+      <g fill="#cbdae1"><circle cy="-29" r="3"/><circle cy="29" r="3"/><circle cx="29" r="3"/><circle cx="-29" r="3"/><circle cx="21" cy="21" r="3"/><circle cx="-21" cy="-21" r="3"/><circle cx="21" cy="-21" r="3"/><circle cx="-21" cy="21" r="3"/></g>
+    </g>
+  </defs>
+  <!-- A native, layered vector illustration: independently replaceable hero artwork. -->
+  <g opacity=".75">
+    <path d="M79 459C150 389 196 463 238 413c39-47 75-15 120-66l29 30c-61 22-26 67-120 76-88 8-55 35-112 27Z" fill="#e18b36"/>
+    <path d="m541 390 120-47-30 39 86-9-43 27 109 16-55 20 83 28-127 18-105-25Z" fill="#ef9540"/>
+    <path d="m622 356 15-45 24 14 48-49-18 55 69-21-59 51Z" fill="#ffb342"/>
+    <path d="m91 401 45-35-8 31 37-11-14 36-63 12Z" fill="#ffb342"/>
+    <path d="m716 485 27-5 12 13-31 8ZM101 482l30-12 12 16-28 8ZM655 305l10-15 8 9-6 11ZM182 435l10-5 8 9-15 7Z" fill="#e2944a"/>
+    <circle cx="768" cy="425" r="5" fill="#e2944a"/><circle cx="108" cy="444" r="6" fill="#e2944a"/><circle cx="744" cy="342" r="4" fill="#e2944a"/><circle cx="150" cy="498" r="4" fill="#e2944a"/>
+  </g>
+  <!-- Far wheels and visible suspension. -->
+  <g transform="translate(586 365) scale(.78)"><use href="#wheel"/></g>
+  <g transform="translate(279 366) scale(.8)"><use href="#wheel"/></g>
+  <path d="m264 321 340 18-41 77-310-14Z" fill="#071622" stroke="#41637a" stroke-width="5"/>
+  <path d="m271 345 111 69 105-63 83 57M321 323l-29 98M508 327l43 93" stroke="#f37b2c" stroke-width="9" stroke-linejoin="round"/>
+  <path d="m268 336 21 91M518 343l35 83" stroke="#8cb4c8" stroke-width="11"/>
+  <path d="m263 350 21-5m-17 16 21-5m-18 16 21-5m-18 16 21-5m-17 16 21-5M519 355l22-6m-18 17 22-6m-18 17 22-6m-18 17 22-6" stroke="#132d41" stroke-width="4"/>
+  <!-- Main silhouette and orange cabin. -->
+  <path d="m189 264 99-32 58-89 126-6 69 64 117 20 19 79-36 47-412-8-52-37Z" fill="#061b2d" stroke="#071624" stroke-width="12" stroke-linejoin="round"/>
+  <path d="m287 234 66-85 115-7 66 67 120 23 9 58-34 42-350-2Z" fill="url(#paint)" stroke="#ffb054" stroke-width="4"/>
+  <path d="m356 156-52 72 92-1 8-73Z" fill="url(#glass)" stroke="#082d48" stroke-width="7" stroke-linejoin="round"/>
+  <path d="m416 153-9 73 101-1-48-71Z" fill="url(#glass)" stroke="#082d48" stroke-width="7" stroke-linejoin="round"/>
+  <path d="m361 163-39 54 14-1 40-54ZM430 161l-5 52h13l3-52Z" fill="#c3f1ee" opacity=".35"/>
+  <path d="m396 236-7 77m133-79 16 78" stroke="#9d3719" stroke-width="4"/>
+  <path d="m292 236 99-1 14 18-25 43-106 6Z" fill="#fa6d22"/>
+  <path d="m415 241 13 5-1 9-14-2Z" fill="#14344b"/>
+  <path d="m448 239 72 8 111-11" stroke="#ffd689" stroke-width="3"/>
+  <path d="m355 145 109-9 16 10-131 12Z" fill="#ffe3a1"/>
+  <!-- Blue hood, flame graphics, fenders. -->
+  <path d="m174 274 114-39 69 24-20 69-139 15-30-33Z" fill="url(#blue)" stroke="#65c8e1" stroke-width="4"/>
+  <path d="m285 241 61 20-91 23-75-8Z" fill="#2289b8"/>
+  <path d="m302 248 41 14-37 8-31-13Z" fill="#77cde1" opacity=".8"/>
+  <path d="m359 269 52 13-8-20 30 17-4-30 36 32 13-27 24 41 31-17 31 32-99 13-109-15Z" fill="#ffd14d"/>
+  <path d="m368 288 58 11-2-12 27 17 6-22 23 29 17-11 16 22-107-7-51-13Z" fill="#fff0b2"/>
+  <path d="m564 260 30 13-1-19 36 28-11-2 20 26-73 11-23-21 32-3-21-13Z" fill="#ffca42"/>
+  <path d="m207 301 55-17 52 22 28 39-31 17-111 1-22-25Z" fill="#0b4670" stroke="#64c4df" stroke-width="5"/>
+  <path d="m497 306 37-32 65 9 36 41-20 34-110-1-24-22Z" fill="#0c4368" stroke="#66b2d0" stroke-width="5"/>
+  <!-- Front grille and lamps. -->
+  <path d="m168 281 87 5-4 55-79-9Z" fill="#102b41" stroke="#a2cbd8" stroke-width="5"/>
+  <path d="m181 291 60 5-2 33-56-6Z" fill="#06141f"/>
+  <path d="m191 295-1 28m12-26-1 27m12-26-1 27m12-26-1 27m12-26-1 25" stroke="#7ba4b9" stroke-width="4"/>
+  <path d="m258 289 30 1-5 21-26 3Z" fill="#d7f4ef" stroke="#183e58" stroke-width="4"/>
+  <path d="m148 282 16 1 2 25-14-6Z" fill="#e7e8ae"/>
+  <path d="m154 331 104 13 38-15 7 18-41 20-110-13Z" fill="#7399ae" stroke="#09263b" stroke-width="5"/>
+  <path d="m163 337 91 11" stroke="#cbdee4" stroke-width="3"/>
+  <path d="m293 231 8-12 19 3-1 17Z" fill="#183d56" stroke="#68abc4" stroke-width="3"/>
+  <!-- Near wheels dominate the stance. -->
+  <g transform="translate(263 404) rotate(-8)"><use href="#wheel"/></g>
+  <g transform="translate(552 408) rotate(8)"><use href="#wheel"/></g>
+  <path d="M157 371c17-64 117-91 169-14M447 372c23-66 122-86 171-6" stroke="#6bb3ce" stroke-width="5" opacity=".75"/>
+  <!-- Race number and small paint details. -->
+  <path d="m431 243 58 4-8 47-54-4Z" fill="#f8efdc" stroke="#092d49" stroke-width="3"/>
+  <text x="435" y="281" fill="#0a2944" font-family="Impact, sans-serif" font-style="italic" font-size="36">02</text>
+  <path d="m553 239 63 11-3 8-59-11Z" fill="#0b3753"/>
+  <path d="m226 258 18-5m-30 11 7-2M642 239l8 28" stroke="#c4e6e9" stroke-width="3"/>
+</svg>
