@@ -110,7 +110,18 @@ def test_expired_and_inactive_accounts_lose_access(admin_context):
 def test_secure_cookie_configuration(admin_context, monkeypatch):
     from app.config import get_settings
     monkeypatch.setattr(get_settings(), "session_cookie_secure", True)
-    assert "Secure" in login(admin_context).headers["set-cookie"]
+    cookie = login(admin_context).headers["set-cookie"].lower()
+    assert "secure" in cookie and "samesite=none" in cookie
+
+
+def test_pages_origin_can_login_and_logout(admin_context):
+    client, _, organizer, password, _, _ = admin_context
+    origin = "https://mr-jabs.github.io"
+    response = client.post("/api/v1/auth/login", json={"username": organizer.username, "password": password}, headers={"Origin": origin})
+    assert response.status_code == 200
+    assert response.headers["access-control-allow-origin"] == origin
+    csrf = response.json()["csrf_token"]
+    assert client.post("/api/v1/auth/logout", headers={"Origin": origin, "X-CSRF-Token": csrf}).status_code == 204
 
 
 def test_metrics_distinguish_responses_confirmed_and_tentative_people(admin_context):

@@ -45,7 +45,7 @@ DUMMY_PASSWORD_HASH = hash_password(secrets.token_urlsafe(32))
 
 
 def check_origin(request: Request):
-    allowed = {get_settings().frontend_origin.rstrip("/"), str(request.base_url).rstrip("/")}
+    allowed = {*get_settings().allowed_frontend_origins, str(request.base_url).rstrip("/")}
     if request.headers.get("origin", "").rstrip("/") not in allowed:
         raise HTTPException(403, detail={"code": "ORIGIN_REJECTED", "message": "Please sign in from the organizer page."})
 

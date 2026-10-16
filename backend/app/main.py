@@ -20,7 +20,7 @@ from app.routes.admin import router as admin_router
 app = FastAPI(title="Zade's Birthday API", version="0.1.0")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[get_settings().frontend_origin],
+    allow_origins=get_settings().allowed_frontend_origins,
     allow_credentials=True,
     allow_methods=["GET", "POST", "DELETE"],
     allow_headers=["Accept", "Content-Type", "Idempotency-Key", "X-CSRF-Token"],

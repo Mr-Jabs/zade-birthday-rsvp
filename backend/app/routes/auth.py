@@ -38,7 +38,7 @@ def login(payload: LoginRequest, request: Request, response: Response, session: 
     raw_token, record = create_session(session, organizer)
     session.execute(delete(LoginThrottle).where(LoginThrottle.key == throttle_key))
     session.commit()
-    response.set_cookie(COOKIE_NAME, raw_token, max_age=SESSION_SECONDS, httponly=True, secure=get_settings().session_cookie_secure, samesite="strict", path="/api")
+    response.set_cookie(COOKIE_NAME, raw_token, max_age=SESSION_SECONDS, httponly=True, secure=get_settings().session_cookie_secure, samesite=get_settings().session_cookie_samesite, path="/api")
     return {"username": organizer.username, "csrf_token": record.csrf_token, "expires_at": record.expires_at}
 
 
@@ -52,4 +52,4 @@ def me(authenticated=Depends(require_session)):
 def logout(response: Response, session: Annotated[Session, Depends(get_session)], authenticated=Depends(require_csrf)):
     session.delete(authenticated[1])
     session.commit()
-    response.delete_cookie(COOKIE_NAME, path="/api", httponly=True, secure=get_settings().session_cookie_secure, samesite="strict")
+    response.delete_cookie(COOKIE_NAME, path="/api", httponly=True, secure=get_settings().session_cookie_secure, samesite=get_settings().session_cookie_samesite)
