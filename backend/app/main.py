@@ -1,4 +1,5 @@
 import logging
+from contextlib import asynccontextmanager
 from typing import Annotated
 
 from fastapi import Depends, FastAPI, Request
@@ -16,8 +17,18 @@ from app.routes.event import router as event_router
 from app.routes.rsvp import router as rsvp_router
 from app.routes.auth import router as auth_router
 from app.routes.admin import router as admin_router
+from app.scripts.open_rsvp import open_rsvp
 
-app = FastAPI(title="Zade's Birthday API", version="0.1.0")
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    # This event accepts responses on every server start, including direct Uvicorn launches.
+    # Fail startup if opening fails, rather than serving a silently closed invitation.
+    open_rsvp()
+    yield
+
+
+app = FastAPI(title="Zade's Birthday API", version="0.1.0", lifespan=lifespan)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=get_settings().allowed_frontend_origins,
@@ -34,7 +45,7 @@ app.include_router(admin_router)
 @app.middleware("http")
 async def private_cache_policy(request: Request, call_next):
     response = await call_next(request)
-    if request.url.path.startswith(("/api/v1/admin", "/api/v1/auth")):
+    if request.url.path == "/api/v1/event" or request.url.path.startswith(("/api/v1/admin", "/api/v1/auth")):
         response.headers["Cache-Control"] = "no-store"
         response.headers["Pragma"] = "no-cache"
     return response

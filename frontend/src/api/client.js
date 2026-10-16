@@ -2,6 +2,7 @@ import { apiUrl } from './config.js';
 
 export async function getEvent() {
   const response = await fetch(apiUrl('/event'), {
+    cache: 'no-store',
     headers: { Accept: 'application/json' },
     signal: AbortSignal.timeout(5000),
   });

@@ -18,7 +18,20 @@ syncNavigation();
 let event = invitationSnapshot;
 const rsvp = initRsvpWizard({ getEvent: () => event, onCalendar: () => downloadCalendar(event) });
 document.querySelectorAll('[data-rsvp]').forEach((button) => {
-  button.addEventListener('click', () => rsvp.open(button));
+  button.addEventListener('click', async () => {
+    button.disabled = true;
+    button.setAttribute('aria-busy', 'true');
+    try {
+      // Recheck availability: the backend may have reopened since this page loaded.
+      await refreshEvent();
+    } catch {
+      document.querySelector('#event-data-note').hidden = false;
+    } finally {
+      button.disabled = false;
+      button.removeAttribute('aria-busy');
+    }
+    rsvp.open(button);
+  });
 });
 
 document.querySelector('#calendar-button').addEventListener('click', () => {
@@ -46,10 +59,19 @@ function renderEvent(data) {
   }
 }
 
+let pendingEvent;
+function refreshEvent() {
+  // Share in-flight requests so an older page-load response cannot overwrite a newer one.
+  if (pendingEvent) return pendingEvent;
+  pendingEvent = getEvent().then((data) => {
+    renderEvent(data);
+    event = data;
+    document.querySelector('#event-data-note').hidden = true;
+  }).finally(() => { pendingEvent = undefined; });
+  return pendingEvent;
+}
+
 // Keep event updates atomic: invalid API data cannot replace the invitation snapshot.
-getEvent().then((data) => {
-  renderEvent(data);
-  event = data;
-}).catch(() => {
+refreshEvent().catch(() => {
   document.querySelector('#event-data-note').hidden = false;
 });

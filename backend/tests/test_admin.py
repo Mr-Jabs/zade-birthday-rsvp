@@ -4,6 +4,7 @@ import io
 from collections import Counter
 from datetime import datetime, timedelta, timezone
 from uuid import uuid4
+from unittest.mock import patch
 
 import pytest
 from fastapi.testclient import TestClient
@@ -36,7 +37,7 @@ def admin_context():
             yield session
         app.dependency_overrides[get_session] = test_session
         try:
-            with TestClient(app, headers={"Origin": "http://testserver"}) as client:
+            with patch('app.main.open_rsvp'), TestClient(app, headers={"Origin": "http://testserver"}) as client:
                 yield client, session, organizer, password, prefix, records
         finally:
             app.dependency_overrides.clear()

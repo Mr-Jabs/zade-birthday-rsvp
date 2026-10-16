@@ -1,4 +1,5 @@
 from uuid import uuid4
+from unittest.mock import patch
 
 import pytest
 from fastapi.testclient import TestClient
@@ -25,7 +26,7 @@ def rsvp_client():
 
         app.dependency_overrides[get_session] = test_session
         try:
-            with TestClient(app) as client:
+            with patch('app.main.open_rsvp'), TestClient(app) as client:
                 yield client, session, event
         finally:
             app.dependency_overrides.clear()
