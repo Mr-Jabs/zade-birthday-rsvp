@@ -1,3 +1,5 @@
+import { apiUrl } from './config.js';
+
 export class RsvpError extends Error {
   constructor(message, fields = {}, code = 'REQUEST_FAILED') {
     super(message);
@@ -9,7 +11,7 @@ export class RsvpError extends Error {
 export async function submitRsvp(payload, key) {
   let response;
   try {
-    response = await fetch('/api/v1/rsvp', {
+    response = await fetch(apiUrl('/rsvp'), {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', Accept: 'application/json', 'Idempotency-Key': key },
       body: JSON.stringify(payload),

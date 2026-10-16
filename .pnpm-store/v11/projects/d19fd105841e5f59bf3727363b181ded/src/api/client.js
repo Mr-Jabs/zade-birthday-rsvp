@@ -1,5 +1,7 @@
+import { apiUrl } from './config.js';
+
 export async function getEvent() {
-  const response = await fetch('/api/v1/event', {
+  const response = await fetch(apiUrl('/event'), {
     headers: { Accept: 'application/json' },
     signal: AbortSignal.timeout(5000),
   });

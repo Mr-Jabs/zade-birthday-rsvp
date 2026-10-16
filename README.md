@@ -105,7 +105,7 @@ pnpm install --frozen-lockfile
 pnpm dev
 ```
 
-Open **http://127.0.0.1:5173**. Vite forwards `/api` requests to FastAPI on port 8000. API docs: **http://127.0.0.1:8000/docs**.
+Open **http://127.0.0.1:5173**. All frontend requests default to **https://zade-birthday-api.onrender.com/api/v1** through `frontend/src/api/config.js`. `VITE_API_BASE_URL` can override the backend origin at build/dev-server startup. The Vite localhost API proxy has been removed. API docs: **https://zade-birthday-api.onrender.com/docs**.
 
 If pnpm is not on PATH in the Codex runtime, use:
 
@@ -123,7 +123,7 @@ cd backend
 ../.venv/Scripts/python.exe -m alembic check
 ```
 
-With FastAPI running:
+For the local integration suite, run FastAPI and set `VITE_API_BASE_URL` to your local backend origin when starting Vite; the suite creates synthetic local records and reads the locally generated organizer account. Do not run this suite against production data. Then:
 
 ```powershell
 cd frontend

@@ -1,6 +1,7 @@
 import './styles/main.css';
 import './styles/admin.css';
 import { renderIcons } from './components/icons.js';
+import { apiUrl } from './api/config.js';
 
 renderIcons();
 const $ = (selector) => document.querySelector(selector);
@@ -32,7 +33,7 @@ class ApiError extends Error {
 async function request(path, options = {}) {
   let response;
   try {
-    response = await fetch(`/api/v1${path}`, { credentials: 'same-origin', ...options, signal: options.signal || AbortSignal.timeout(15000) });
+    response = await fetch(apiUrl(path), { credentials: 'include', ...options, signal: options.signal || AbortSignal.timeout(15000) });
   } catch (error) {
     if (error.name === 'AbortError') throw error;
     throw new ApiError('We couldn’t reach the party desk. Check your connection and try again.', 0);

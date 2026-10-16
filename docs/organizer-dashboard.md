@@ -70,4 +70,4 @@ Backend integration tests use real PostgreSQL transactions and roll back their s
 .venv/Scripts/python.exe backend/tests/cleanup_browser.py
 ```
 
-Both frontend entry points (`index.html`, `admin.html`) are included in the Vite production build. Configure production hosting to serve `admin.html` and proxy `/api` to FastAPI under the same HTTPS origin. This implementation has been verified locally; production deployment is not part of this change.
+Both frontend entry points (`index.html`, `admin.html`) are included in the Vite production build. Frontend requests default directly to `https://zade-birthday-api.onrender.com/api/v1`; `VITE_API_BASE_URL` can override the backend origin. Admin requests use `credentials: include`. For a frontend on a different site, the deployed API must allow that exact frontend origin with credentialed CORS and cross-site-compatible session cookies (`SameSite=None; Secure`). The backend source in this repository currently uses SameSite Strict; updating the frontend URL does not change the deployed API’s cookie or CORS settings.
