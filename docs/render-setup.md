@@ -20,10 +20,10 @@ ORGANIZER_PASSWORD=<set the intended password as a Render secret>
 
 Use the existing working DATABASE_URL. Do not commit the password, connection URL, or `.env`. If configuring a fresh PostgreSQL connection, the installed SQLAlchemy driver is psycopg, so the driver form is `postgresql+psycopg://…`.
 
-The start script applies all Alembic migrations, seeds missing event data, and creates a missing organizer from the environment secret before running Uvicorn. Existing accounts, passwords, responses, and event settings are preserved. Startup stops if setup fails; inspect the Render log without copying secrets into chat.
+The start script applies all Alembic migrations, seeds missing event data, creates a missing organizer from the environment secret, and runs `python -m app.scripts.open_rsvp` before starting Uvicorn. Existing accounts, passwords, and responses are preserved. Every successful startup sets the event’s `rsvp_open` flag to true. Startup stops if setup or opening RSVPs fails; inspect the Render log without copying secrets into chat.
 
 An existing organizer password can be reset interactively with `python -m app.scripts.create_organizer --set-password` in the backend directory. Changing ORGANIZER_PASSWORD alone does not reset an existing account.
 
-After deploying, `/api/v1/event` should return 200. A 200 from `/api/ready` only proves database connectivity, not that migrations have been applied. A freshly seeded event keeps RSVPs closed until explicitly opened with `python -m app.scripts.open_rsvp`.
+After deploying, `/api/v1/event` should return 200 with `rsvp_open: true`. A 200 from `/api/ready` only proves database connectivity, not that migrations have been applied. The seed command alone still defaults a new event to closed; the start script now opens it automatically afterward.
 
 The allowlist includes GitHub Pages and the localhost/127.0.0.1 Vite previews on port 5173. HTTPS deployment cookies use SameSite=None and Secure when SESSION_COOKIE_SECURE is true. Browser third-party-cookie restrictions may still affect sessions across GitHub Pages and Render; a shared-site hosting setup can avoid that browser restriction.
